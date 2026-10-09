@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250" fill="none" width="100%" height="100%">
+  <defs>
+    <radialGradient id="drinkGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D50000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#D50000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cupBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#212121"/>
+      <stop offset="25%" stop-color="#C62828"/>
+      <stop offset="70%" stop-color="#E53935"/>
+      <stop offset="100%" stop-color="#880E4F"/>
+    </linearGradient>
+    <linearGradient id="strawGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFCA28"/>
+      <stop offset="50%" stop-color="#FFA000"/>
+      <stop offset="100%" stop-color="#FF6F00"/>
+    </linearGradient>
+    <filter id="drinkShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <circle cx="150" cy="130" r="105" fill="url(#drinkGlow)"/>
+  <ellipse cx="150" cy="230" rx="60" ry="10" fill="#050304" opacity="0.6"/>
+
+  <g filter="url(#drinkShadow)">
+    <!-- Slanted Straw -->
+    <path d="M165 20 L185 8 L195 24 L175 36 L160 85" stroke="url(#strawGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M168 20 L182 10" stroke="#FFF" stroke-width="2"/>
+
+    <!-- Cup Lid -->
+    <ellipse cx="150" cy="85" rx="60" ry="12" fill="#ECEFF1"/>
+    <ellipse cx="150" cy="82" rx="55" ry="9" fill="#CFD8DC"/>
+    <rect x="145" y="77" width="10" height="6" rx="2" fill="#90A4AE"/>
+
+    <!-- Cup Body -->
+    <path d="M96 86 L112 215 C114 222 186 222 188 215 L204 86 Z" fill="url(#cupBody)"/>
+
+    <!-- Condensation Ice Drops -->
+    <ellipse cx="130" cy="120" rx="3" ry="5" fill="#FFF" opacity="0.6"/>
+    <ellipse cx="165" cy="135" rx="2.5" ry="4" fill="#FFF" opacity="0.6"/>
+    <ellipse cx="140" cy="165" rx="3.5" ry="6" fill="#FFF" opacity="0.6"/>
+    <ellipse cx="170" cy="180" rx="2" ry="3.5" fill="#FFF" opacity="0.6"/>
+
+    <!-- Center Logo Shield on Cup -->
+    <circle cx="150" cy="148" r="28" fill="#FFF8E7"/>
+    <circle cx="150" cy="148" r="25" fill="#C62828"/>
+    <text x="150" y="145" fill="#FFCA28" font-family="'Impact', 'Bebas Neue', sans-serif" font-size="14" font-weight="900" text-anchor="middle">CHILLED</text>
+    <text x="150" y="159" fill="#FFF" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">SODA</text>
+
+    <!-- Lemon Slice on Rim -->
+    <circle cx="198" cy="82" r="18" fill="#FFEE58" stroke="#FBC02D" stroke-width="2"/>
+    <circle cx="198" cy="82" r="14" fill="#FFF59D"/>
+    <line x1="198" y1="68" x2="198" y2="96" stroke="#FFF" stroke-width="1.5"/>
+    <line x1="184" y1="82" x2="212" y2="82" stroke="#FFF" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "Sahiwal Broast - Kamalia",
+  "description": "Premium sample website for Sahiwal Broast in Kamalia, Punjab. Crispy, juicy, authentic desi fast food with WhatsApp ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

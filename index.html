@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample Site | Ali Web Studio – Sahiwal Broast Kamalia | Pakistani, Chinese, BBQ & Fast Food</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Sample Site | Ali Web Studio – This is only a sample website made by Ali Web Studio for Sahiwal Broast in Kamalia, Punjab. Crispy broast, pure butter karahi, chicken handi, BBQ platters, and burgers." />
+  <meta property="og:title" content="Sample Site | Ali Web Studio – Sahiwal Broast Kamalia" />
+  <meta property="og:description" content="Sample Site | Ali Web Studio – This is only a sample website made by Ali Web Studio for Sahiwal Broast in Kamalia, Punjab." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_PK" />
+  <meta name="theme-color" content="#FFC21A" />
+
+  <!-- Favicon (Official Restaurant Emblem) -->
+  <link rel="icon" type="image/png" href="./sources/logo.png" />
+  <link rel="apple-touch-icon" href="./sources/logo.png" />
+
+  <!-- Google Fonts: Bebas Neue, Poppins, and Noto Nastaliq Urdu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Main Pure CSS Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. TOP ANNOUNCEMENT BAR (Sticky disclaimer across entire website)
+       ========================================================================= -->
+  <div class="demo-banner" role="banner" aria-label="Sample site announcement">
+    <span>⚠️ <strong>Disclaimer:</strong> This is only a sample website made by Ali Web Studio.</span>
+  </div>
+
+  <!-- PRELOADER SCREEN -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-logo-frame">
+        <img src="./sources/logo.png" alt="Sahiwal Broast Emblem" class="preloader-logo-img" width="96" height="96" />
+      </div>
+      <h2 class="preloader-title">SAHIWAL BROAST</h2>
+      <div class="preloader-sub">KAMALIA • PUNJAB</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <div class="preloader-num">0%</div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR (DESKTOP) -->
+  <div class="custom-cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       1. NAVBAR
+       ========================================================================= -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      
+      <!-- Logo / Brand -->
+      <a href="#home" class="nav-brand" aria-label="Sahiwal Broast Kamalia Home">
+        <div class="brand-logo-frame">
+          <img src="./sources/logo.png" alt="Sahiwal Broast Logo" class="brand-logo-img" width="48" height="48" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">SAHIWAL <span>BROAST</span></span>
+          <span class="brand-sub">KAMALIA • SB RESTAURANT</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#menu" class="nav-link">Full Menu</a>
+        <a href="#deals" class="nav-link">Special Deals</a>
+        <a href="#building" class="nav-link">Our Building</a>
+        <a href="#why-us" class="nav-link">Why Us</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Location & Call</a>
+      </nav>
+
+      <!-- Nav Actions (Cart & WhatsApp) -->
+      <div class="nav-actions">
+        <!-- Cart Drawer Button -->
+        <button type="button" class="cart-toggle-btn" aria-label="Open Cart Drawer">
+          <span>🛒 Cart</span>
+          <span class="cart-badge" style="display: none;">0</span>
+        </button>
+
+        <!-- WhatsApp Quick Order -->
+        <a href="https://wa.me/923006914217?text=Assalam%20o%20Alaikum!%20I%20want%20to%20order%20from%20Sahiwal%20Broast%20Kamalia." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-whatsapp nav-whatsapp-btn">
+          <span>💬 <span class="nav-whatsapp-text">Order on WhatsApp</span></span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button type="button" class="hamburger" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-nav" aria-label="Mobile Navigation Drawer">
+    <div>
+      <div class="footer-brand-header" style="margin-bottom: 12px;">
+        <div class="brand-logo-frame">
+          <img src="./sources/logo.png" alt="Sahiwal Broast Logo" class="brand-logo-img" width="44" height="44" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">SAHIWAL <span>BROAST</span></span>
+          <span class="brand-sub">KAMALIA, PUNJAB</span>
+        </div>
+      </div>
+      <div class="urdu-text" style="color: #FFC21A; font-size: 0.85rem; margin-bottom: 20px;">
+        لذت، غذائیت اور معیار ہمارا نصب العین
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#menu" class="mobile-nav-link">Full Menu & Prices</a></li>
+        <li><a href="#deals" class="mobile-nav-link">Hot Combo Deals</a></li>
+        <li><a href="#building" class="mobile-nav-link">Our Building & Dine-In</a></li>
+        <li><a href="#why-us" class="mobile-nav-link">Why Choose Us</a></li>
+        <li><a href="#reviews" class="mobile-nav-link">Customer Reviews</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Location & Numbers</a></li>
+      </ul>
+    </div>
+    <div>
+      <a href="https://wa.me/923006914217" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; margin-bottom: 12px;">
+        💬 WhatsApp: +92 300 6914217
+      </a>
+      <div style="font-size: 0.78rem; color: #FFD54F; text-align: center; margin-bottom: 4px;">
+        Delivery: 0300-6914217 | 0332-7214217
+      </div>
+      <p style="font-size: 0.76rem; color: #FFD54F; text-align: center; font-weight: 600;">Sample Site – Ali Web Studio</p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- =========================================================================
+         2. HERO SECTION
+         ========================================================================= -->
+    <section id="home" class="hero" aria-label="Hero Introduction">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+
+      <div class="container hero-grid">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          
+          <div class="hero-badge-row">
+            <span class="hero-sample-ribbon">⭐ Sample Design by Ali Web Studio</span>
+            <span class="pill-badge">🔥 خالص مکھن کڑاہی</span>
+            <span class="pill-badge pill-badge-gold">⭐ پاکستانی • چائنیز • باربی کیو • فاسٹ فوڈ</span>
+          </div>
+
+          <h1 class="hero-title">
+            AUTHENTIC DESI &<br />
+            <span class="highlight-red">CRISPY BROAST</span><br />
+            IN <span class="highlight-gold">KAMALIA</span>
+          </h1>
+
+          <div class="hero-tagline">
+            <span>Crispy. Juicy. Desi Taste.</span>
+          </div>
+          <div class="hero-urdu-tagline urdu-text">
+            لذت، غذائیت اور معیار ہمارا نصب العین
+          </div>
+
+          <p class="hero-desc">
+            Kamalia’s premier dining destination for pure butter Chicken Karahi, clay-pot Handi, charcoal BBQ platters, golden crispy broast, zinger burgers, pizza, fresh Rohu fish, and royal pulao.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://wa.me/923006914217?text=Assalam%20o%20Alaikum!%20I%20would%20like%20to%20place%20an%20order%20at%20Sahiwal%20Broast%20Kamalia." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn btn-primary">
+              <span>💬 Order on WhatsApp</span>
+            </a>
+            <a href="#menu" class="btn btn-outline">
+              <span>📖 View Official Menu & Prices</span>
+            </a>
+          </div>
+
+          <!-- Services info -->
+          <div class="hero-services">
+            <div class="service-item">
+              <span class="service-icon-dot"></span>
+              <span>Dine-in (Family AC Hall)</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon-dot"></span>
+              <span>Takeaway / Parcel</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon-dot"></span>
+              <span>Home Delivery</span>
+            </div>
+            <div class="service-item">
+              <span class="service-icon-dot" style="background:#FF1A1A; box-shadow:0 0 10px #FF1A1A;"></span>
+              <span>⏰ 10:00 AM – 1:00 AM</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visuals with Layered SVGs & Parallax Bobbing -->
+        <div class="hero-visual-wrap">
+          <div class="hero-dish-stage">
+            <div class="dish-stage-backlight"></div>
+
+            <!-- Rotating circular text badge -->
+            <div class="rotating-badge-wrap">
+              <img src="./assets/badge.svg" alt="100% Desi Taste Fresh Badge" width="110" height="110" />
+            </div>
+
+            <!-- Center piece: Golden Broast Piece -->
+            <div class="hero-main-illustration">
+              <img src="./assets/broast.svg" alt="Sahiwal Broast Golden Fried Chicken" width="380" height="300" />
+            </div>
+
+            <!-- Floating satellite food illustrations showcasing variety -->
+            <div class="floating-sat-item floating-fries" title="Butter Karahi">
+              <img src="./assets/karahi.svg" alt="Pure Butter Karahi" width="150" height="120" />
+            </div>
+
+            <div class="floating-sat-item floating-burger" title="Charcoal BBQ">
+              <img src="./assets/bbq.svg" alt="Charcoal Bar B.Q" width="160" height="130" />
+            </div>
+
+            <div class="floating-sat-item floating-drink" title="Fish & Pizza">
+              <img src="./assets/fish.svg" alt="Special Rohu Fish Fry" width="140" height="110" />
+            </div>
+
+            <!-- Faint diagonal watermark overlay for hero visual -->
+            <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. MARQUEE STRIP
+         ========================================================================= -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>GOLDEN BROAST</span> <span class="separator">★</span>
+          <span class="highlight">خالص مکھن کڑاہی</span> <span class="separator">★</span>
+          <span>CHICKEN NAWABI HANDI</span> <span class="separator">★</span>
+          <span class="highlight">BAR B.Q PLATTER</span> <span class="separator">★</span>
+          <span>MALAI BOTI PIZZA</span> <span class="separator">★</span>
+          <span class="highlight">CRISPY ZINGER</span> <span class="separator">★</span>
+          <span>SPECIAL ROHU FISH FRY</span> <span class="separator">★</span>
+          <span class="highlight">CHICKEN CHOWMEIN</span> <span class="separator">★</span>
+          <span>JANGLI PULAO</span> <span class="separator">★</span>
+          <span class="highlight">KAMALIA PUNJAB</span> <span class="separator">★</span>
+        </div>
+        <div class="marquee-content">
+          <span>GOLDEN BROAST</span> <span class="separator">★</span>
+          <span class="highlight">خالص مکھن کڑاہی</span> <span class="separator">★</span>
+          <span>CHICKEN NAWABI HANDI</span> <span class="separator">★</span>
+          <span class="highlight">BAR B.Q PLATTER</span> <span class="separator">★</span>
+          <span>MALAI BOTI PIZZA</span> <span class="separator">★</span>
+          <span class="highlight">CRISPY ZINGER</span> <span class="separator">★</span>
+          <span>SPECIAL ROHU FISH FRY</span> <span class="separator">★</span>
+          <span class="highlight">CHICKEN CHOWMEIN</span> <span class="separator">★</span>
+          <span>JANGLI PULAO</span> <span class="separator">★</span>
+          <span class="highlight">KAMALIA PUNJAB</span> <span class="separator">★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         4. MENU SECTION
+         ========================================================================= -->
+    <section id="menu" class="menu-section" aria-label="Restaurant Menu">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-pretitle">
+            <span>🍽️ COMPLETE AUTHENTIC MENU</span>
+          </div>
+          <h2 class="section-title">MENU & OFFICIAL PRICES</h2>
+          <div class="menu-disclaimer-note">⚠️ Sample menu and prices, not final.</div>
+          <div class="section-urdu urdu-text">ساہیوال بروسٹ کمالیہ کا مکمل مینو اور قیمتیں</div>
+          <p class="section-desc">
+            Pakistani, Chinese, Bar B.Q, Fast Food, Karahi, Handi, Fish & Pizza. Exact rates from our official menu card. Tap <strong>+ Add</strong> on any item to build your WhatsApp order!
+          </p>
+          <div style="margin-top: 10px; font-size: 0.85rem; color: #FFC21A;">
+            📌 نوٹ: پارسل آرڈر پر ڈبہ پیکنگ 40 روپے لاگو ہونگے • سروس چارجز 6%
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs" role="tablist">
+          <button type="button" class="tab-btn active" data-category="all" role="tab">All Menu (تمام کھانے)</button>
+          <button type="button" class="tab-btn" data-category="broast" role="tab">Broast & Steam (بروسٹ)</button>
+          <button type="button" class="tab-btn" data-category="karahi-handi" role="tab">Butter Karahi & Handi (کڑاہی و ہانڈی)</button>
+          <button type="button" class="tab-btn" data-category="bbq" role="tab">Bar B.Q (باربی کیو)</button>
+          <button type="button" class="tab-btn" data-category="burgers-shawarma" role="tab">Burgers & Shawarma (برگر و شوارما)</button>
+          <button type="button" class="tab-btn" data-category="pizza" role="tab">Special Pizza (پیزا)</button>
+          <button type="button" class="tab-btn" data-category="fish" role="tab">Fish Specialties (فش سپیشل)</button>
+          <button type="button" class="tab-btn" data-category="rice-chinese" role="tab">Rice & Chinese (چائنیز و چومین)</button>
+          <button type="button" class="tab-btn" data-category="appetizers" role="tab">Appetizers & Soup (سوپ و فرائز)</button>
+          <button type="button" class="tab-btn" data-category="cold-bar" role="tab">Cold Bar & Drinks (کولڈ بار)</button>
+        </div>
+
+        <!-- Menu Cards Grid -->
+        <div class="menu-grid" id="menuGrid">
+          <!-- Dynamically populated by js/main.js with exact menu prices -->
+        </div>
+
+        <!-- View All / Expand Menu Button Wrap -->
+        <div class="menu-expand-wrap" id="menuExpandWrap">
+          <!-- Injected dynamically by js/main.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. DEALS SECTION (Updated with Official Combos & Platter)
+         ========================================================================= -->
+    <section id="deals" class="deals-section" aria-label="Special Deals">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-pretitle">
+            <span>🔥 GRAND COMBOS & PLATTERS</span>
+          </div>
+          <h2 class="section-title">FEATURED SPECIAL DEALS</h2>
+          <div class="section-urdu urdu-text">فیملی اور اسپیشل فیسٹ ڈیلز</div>
+          <p class="section-desc">
+            Chef recommended feast combinations for friends and family dining. Click to order directly on WhatsApp!
+          </p>
+        </div>
+
+        <div class="deals-grid">
+          
+          <!-- Deal 1: Fast Food Crunch Combo -->
+          <div class="deal-card">
+            <span class="deal-ribbon">Fast Food Combo</span>
+            <div>
+              <h3 class="deal-heading">FAST FOOD CRUNCH DEAL</h3>
+              <div class="deal-urdu-heading urdu-text">اسپیشل زنگر فاسٹ فوڈ ڈیل</div>
+              
+              <div class="deal-img-box">
+                <img src="./sources/burger.jpg" alt="Fast Food Crunch Deal" loading="lazy" />
+                <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
+              </div>
+
+              <ul class="deal-items-list">
+                <li><span class="bullet">✔</span> 1x S.P Zinger Cheese Burger (Rs. 430)</li>
+                <li><span class="bullet">✔</span> 1x Finger Chips / Hot Fries (Rs. 200)</li>
+                <li><span class="bullet">✔</span> 1x 1/2 Liter Chilled Soft Drink (Rs. 120)</li>
+                <li><span class="bullet">✔</span> 1x Special Garlic Mayo Dip (Rs. 70)</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="deal-price-box">
+                <span class="deal-price-current">Rs. 690</span>
+                <span class="deal-price-original">Rs. 820</span>
+                <span class="deal-saving">SAVE RS. 130</span>
+              </div>
+              <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="orderDealWhatsApp('Fast Food Crunch Deal', 690)">
+                <span>💬 Order this Deal</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Deal 2: Grand BBQ Family Platter (As printed on menu!) -->
+          <div class="deal-card popular">
+            <span class="deal-ribbon gold">Grand Platter</span>
+            <div>
+              <h3 class="deal-heading">SPECIAL FAMILY B.B.Q PLATTER</h3>
+              <div class="deal-urdu-heading urdu-text">اسپیشل فیملی باربی کیو پلیٹر</div>
+              
+              <div class="deal-img-box">
+                <img src="./sources/bbq.jpg" alt="Special Family BBQ Platter" loading="lazy" />
+                <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
+              </div>
+
+              <ul class="deal-items-list">
+                <li><span class="bullet">✔</span> Chicken Tikka (4 Seekh) & Malai Boti (4 Seekh)</li>
+                <li><span class="bullet">✔</span> Chicken Seekh Kababs & Reshmi Kababs</li>
+                <li><span class="bullet">✔</span> Fragrant Saffron Yellow Rice Mound</li>
+                <li><span class="bullet">✔</span> Fresh Butter Roghani Naans & Tandoori Paratha</li>
+                <li><span class="bullet">✔</span> Mint Chutney, Zeera Raita & Fresh Kachumar Salad</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="deal-price-box">
+                <span class="deal-price-current">Rs. 4,990</span>
+                <span class="deal-price-original">Official Menu</span>
+                <span class="deal-saving">CHEF SIGNATURE</span>
+              </div>
+              <button type="button" class="btn btn-primary" style="width: 100%;" onclick="orderDealWhatsApp('Special Family B.B.Q Platter', 4990)">
+                <span>💬 Order this Platter</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Deal 3: Desi Handi & Biryani Feast -->
+          <div class="deal-card">
+            <span class="deal-ribbon">Desi Feast</span>
+            <div>
+              <h3 class="deal-heading">DESI HANDI & BIRYANI FEAST</h3>
+              <div class="deal-urdu-heading urdu-text">دیسی ہانڈی و بریانی فیسٹ</div>
+              
+              <div class="deal-img-box">
+                <img src="./sources/handi.jpg" alt="Desi Handi and Biryani Feast" loading="lazy" />
+                <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
+              </div>
+
+              <ul class="deal-items-list">
+                <li><span class="bullet">✔</span> 1x S.P Chicken Handi Half (Pure Butter)</li>
+                <li><span class="bullet">✔</span> 1x Chicken Tikka (4 Seekh)</li>
+                <li><span class="bullet">✔</span> 1x S.P Chicken Biryani Full Plate</li>
+                <li><span class="bullet">✔</span> 4x S.P Roghani Naan & 1x 1.5L Soft Drink</li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="deal-price-box">
+                <span class="deal-price-current">Rs. 2,990</span>
+                <span class="deal-price-original">Rs. 3,430</span>
+                <span class="deal-saving">SAVE RS. 440</span>
+              </div>
+              <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="orderDealWhatsApp('Desi Handi & Biryani Feast', 2990)">
+                <span>💬 Order this Deal</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5B. RESTAURANT BUILDING & AMBIANCE SECTION
+         ========================================================================= -->
+    <section id="building" class="building-section" aria-label="Restaurant Building and Dining Experience">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-pretitle">
+            <span>🏛️ OUR PREMISES & DINE-IN EXPERIENCE</span>
+          </div>
+          <h2 class="section-title">OUR RESTAURANT BUILDING & AMBIANCE</h2>
+          <div class="section-urdu urdu-text">کمالیہ کا شاندار فیملی ریستوران — جدید عمارت اور پرسکون ماحول</div>
+          <p class="section-desc">
+            Welcome to Sahiwal Broast Kamalia. Our landmark restaurant building is designed to offer families and food lovers an unforgettable dining experience with genuine Pakistani hospitality.
+          </p>
+        </div>
+
+        <div class="building-grid">
+          
+          <!-- Building Photo Card with Watermark & Badges -->
+          <div class="building-image-card">
+            <div class="building-image-badge">
+              <span>📍 Iconic Landmark • Kamalia</span>
+            </div>
+
+            <div class="building-img-wrap">
+              <img src="./sources/building.jpg" alt="Sahiwal Broast Kamalia Restaurant Building Exterior" loading="lazy" />
+              <!-- Diagonal Watermark Overlay -->
+              <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
+            </div>
+
+            <div class="building-image-caption-bar">
+              <div>
+                <div class="building-caption-title">SAHIWAL BROAST KAMALIA</div>
+                <div class="building-caption-sub urdu-text">خوبصورت ماحول، کشادہ پارکنگ اور فیملی ڈائن اِن ہال</div>
+              </div>
+              <div class="hero-service-chips" style="margin: 0;">
+                <span class="service-item" style="background: rgba(255, 194, 26, 0.15); border-color: rgba(255, 194, 26, 0.4); color: #FFC21A; padding: 4px 12px; font-size: 0.82rem;">
+                  ⭐ 100% Family Friendly
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Building Features & Description -->
+          <div class="building-info-content">
+            <p class="building-info-lead">
+              Centrally situated in Kamalia, Punjab, our restaurant brings together rich culinary taste and modern architectural comfort. Step inside our illuminated, welcoming premises for hot sizzling meals, fast takeaway parcels, or peaceful family gatherings.
+            </p>
+
+            <div class="building-highlights-list">
+              
+              <div class="building-highlight-item">
+                <div class="building-item-icon">🏛️</div>
+                <div class="building-item-text">
+                  <h4>Modern Multi-Story Architecture</h4>
+                  <p>Eye-catching illuminated exterior facade with welcoming glass views and warm golden lighting.</p>
+                </div>
+              </div>
+
+              <div class="building-highlight-item">
+                <div class="building-item-icon">❄️</div>
+                <div class="building-item-text">
+                  <h4>Centrally Air-Conditioned Family Halls</h4>
+                  <p>Dedicated separate dining spaces ensuring complete privacy, peace, and comfort for families.</p>
+                </div>
+              </div>
+
+              <div class="building-highlight-item">
+                <div class="building-item-icon">🚗</div>
+                <div class="building-item-text">
+                  <h4>Spacious Road-Front Parking</h4>
+                  <p>Hassle-free parking right outside the building for family cars and bikes with attentive staff.</p>
+                </div>
+              </div>
+
+              <div class="building-highlight-item">
+                <div class="building-item-icon">🎉</div>
+                <div class="building-item-text">
+                  <h4>Celebrations & Large Party Seating</h4>
+                  <p>150+ seating capacity suitable for birthdays, family dawats, corporate dinners, and festive banquets.</p>
+                </div>
+              </div>
+
+              <div class="building-highlight-item">
+                <div class="building-item-icon">⚡</div>
+                <div class="building-item-text">
+                  <h4>Express Takeaway & Delivery Counter</h4>
+                  <p>Fast packaging zone to get your food hot and fresh straight to your car or doorstep.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="building-actions">
+              <a href="tel:+923006914217" class="btn btn-primary" style="padding: 10px 22px;">
+                <span>📞 Reserve Table: 0300-6914217</span>
+              </a>
+              <a href="https://maps.app.goo.gl/J7SFsxrmnMsCrWok9" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-maps-link" style="padding: 10px 20px;">
+                <span>🗺️ Locate on Google Maps</span>
+              </a>
+            </div>
+
+            <div style="font-size: 0.8rem; color: #FFD54F; font-weight: 600;">
+              ⚠️ Sample presentation by Ali Web Studio.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. WHY US SECTION
+         ========================================================================= -->
+    <section id="why-us" class="why-section" aria-label="Why Choose Sahiwal Broast">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-pretitle">
+            <span>⭐ THE SAHIWAL BROAST DISTINCTION</span>
+          </div>
+          <h2 class="section-title">WHY KAMALIA TRUSTS US</h2>
+          <div class="section-urdu urdu-text">لذت، غذائیت اور معیار ہمارا نصب العین</div>
+          <p class="section-desc">
+            We are dedicated to pure ingredients: 100% pure butter (خالص مکھن) for our handis and karahis, fresh poultry daily, and authentic charcoal smoking.
+          </p>
+        </div>
+
+        <div class="counters-grid">
+          
+          <!-- Counter 1 -->
+          <div class="counter-card">
+            <div class="counter-icon-box">🧈</div>
+            <div class="counter-number" data-target="100" data-suffix="%">0%</div>
+            <h3 class="counter-label">Pure Desi Butter</h3>
+            <div class="counter-urdu urdu-text">خالص مکھن سے تیار کردہ</div>
+            <p class="counter-desc">All special karahis and handis are simmered in authentic butter for unmatched richness.</p>
+          </div>
+
+          <!-- Counter 2 -->
+          <div class="counter-card">
+            <div class="counter-icon-box">🍗</div>
+            <div class="counter-number" data-target="100" data-suffix="%">0%</div>
+            <h3 class="counter-label">Fresh Poultry Daily</h3>
+            <div class="counter-urdu urdu-text">تازہ حلال چکن روزانہ</div>
+            <p class="counter-desc">Strictly fresh, never-frozen local chicken cleaned and butchered fresh every morning.</p>
+          </div>
+
+          <!-- Counter 3 -->
+          <div class="counter-card">
+            <div class="counter-icon-box">⚡</div>
+            <div class="counter-number" data-target="25" data-suffix="m">0m</div>
+            <h3 class="counter-label">Fast Kamalia Delivery</h3>
+            <div class="counter-urdu urdu-text">تیز ترین ہوم ڈلیوری</div>
+            <p class="counter-desc">Dedicated delivery riders dispatching food in heat-retaining insulated boxes across town.</p>
+          </div>
+
+          <!-- Counter 4 -->
+          <div class="counter-card">
+            <div class="counter-icon-box">👑</div>
+            <div class="counter-number" data-target="4.9" data-suffix="★">0★</div>
+            <h3 class="counter-label">Customer Satisfaction</h3>
+            <div class="counter-urdu urdu-text">گاہکوں کا مستقل اعتماد</div>
+            <p class="counter-desc">Family AC halls, courteous service, and generous portions that leave everyone smiling.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. REVIEWS SECTION
+         ========================================================================= -->
+    <section id="reviews" class="reviews-section" aria-label="Customer Testimonials">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-pretitle">
+            <span>💬 KAMALIA'S VERDICT</span>
+          </div>
+          <h2 class="section-title">WHAT CUSTOMERS SAY</h2>
+          <div class="section-urdu urdu-text">ہمارے معزز صارفین کے تاثرات</div>
+          <p class="section-desc">
+            Hear from families and food lovers who dine with us regularly across Kamalia.
+          </p>
+        </div>
+
+        <div class="reviews-carousel-wrap">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Injected by js/main.js -->
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button type="button" class="carousel-btn" id="prevReviewBtn" aria-label="Previous review">←</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button type="button" class="carousel-btn" id="nextReviewBtn" aria-label="Next review">→</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. CONTACT & LOCATION SECTION
+         ========================================================================= -->
+    <section id="contact" class="contact-section" aria-label="Contact Information and Location">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-pretitle">
+            <span>📍 DINE-IN, TAKEAWAY & DELIVERY</span>
+          </div>
+          <h2 class="section-title">VISIT US OR ORDER NOW</h2>
+          <div class="section-urdu urdu-text">رابطہ اور اوقات کار</div>
+          <p class="section-desc">
+            Located in the heart of Kamalia with spacious family seating. Call any of our active delivery numbers or order directly on WhatsApp.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Info Details -->
+          <div class="contact-card">
+            
+            <div class="contact-item">
+              <div class="contact-icon-box">📍</div>
+              <div>
+                <h3 class="contact-info-title">Restaurant Address</h3>
+                <p class="contact-info-text">
+                  Kamalia, District Toba Tek Singh, Punjab, Pakistan
+                </p>
+                <div class="urdu-text" style="color: #FFC21A; font-size: 0.95rem; margin-top: 4px;">
+                  کمالیہ، ضلع ٹوبہ ٹیک سنگھ، پنجاب
+                </div>
+                <div class="contact-building-thumb">
+                  <img src="./sources/building.jpg" alt="Sahiwal Broast Restaurant Building Exterior" loading="lazy" />
+                  <div class="contact-building-thumb-text">
+                    <strong>Landmark Building on Main Road:</strong>
+                    Look for our illuminated building with prominent neon signage and glass facade.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-box">⏰</div>
+              <div>
+                <h3 class="contact-info-title">Official Timings</h3>
+                <p class="contact-info-text">
+                  <strong>10:00 AM to 1:00 AM Daily</strong> (Open 7 Days a Week)
+                </p>
+                <div class="urdu-text" style="color: #FF9800; font-size: 0.9rem; margin-top: 2px;">
+                  صبح 10 بجے تا رات 1 بجے تک
+                </div>
+                <p style="font-size: 0.82rem; color: #B3A4A7; margin-top: 4px;">
+                  Lunch, Dinner, Late-Night, Party Catering & Home Delivery
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-box">📞</div>
+              <div>
+                <h3 class="contact-info-title">Official Delivery Numbers</h3>
+                <p class="contact-info-text" style="line-height: 1.8;">
+                  <strong>WhatsApp & Primary:</strong> <a href="tel:+923006914217" style="color: #25D366; text-decoration: none; font-weight: bold;">+92 300 6914217</a><br />
+                  <strong>Delivery Line 1:</strong> <a href="tel:03327214217" style="color: #FFF; text-decoration: none;">0332-7214217</a><br />
+                  <strong>Delivery Line 2:</strong> <a href="tel:03366914217" style="color: #FFF; text-decoration: none;">0336-6914217</a><br />
+                  <strong>Delivery Line 3:</strong> <a href="tel:03126914217" style="color: #FFF; text-decoration: none;">0312-6914217</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-btn-group">
+              <a href="tel:+923006914217" class="btn btn-primary" style="padding: 10px 22px;">
+                <span>📞 Call 0300-6914217</span>
+              </a>
+              <a href="https://maps.app.goo.gl/J7SFsxrmnMsCrWok9" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-maps-link" style="padding: 10px 22px;">
+                <span>🗺️ Open in Google Maps</span>
+              </a>
+            </div>
+            <div class="form-disclaimer-notice" style="margin-top: 14px;">
+              ⚠️ This is a sample site. Orders and forms are not active.
+            </div>
+
+          </div>
+
+          <!-- Quick WhatsApp Inquiry Form -->
+          <div class="inquiry-card">
+            <h3 class="inquiry-title">QUICK WHATSAPP INQUIRY</h3>
+            <div class="form-disclaimer-notice">
+              ⚠️ This is a sample site. Orders and forms are not active.
+            </div>
+            <p style="font-size: 0.88rem; color: #B3A4A7; margin-bottom: 22px;">
+              Need table booking for family, large catering, or quick delivery status? Message our team directly:
+            </p>
+
+            <form id="inquiryForm">
+              <div class="form-group">
+                <label for="inquiryName" class="form-label">Your Name</label>
+                <input type="text" id="inquiryName" class="form-input" placeholder="e.g. Tariq Mehmood" required />
+              </div>
+              <div class="form-group">
+                <label for="inquiryPhone" class="form-label">Phone Number</label>
+                <input type="tel" id="inquiryPhone" class="form-input" placeholder="0300-1234567" />
+              </div>
+              <div class="form-group">
+                <label for="inquiryMessage" class="form-label">Inquiry / Food Request</label>
+                <textarea id="inquiryMessage" class="form-textarea" rows="3" placeholder="Tell us what you would like to order or ask..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
+                <span>💬 Send via WhatsApp</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       SLIDE-IN CART DRAWER
+       ========================================================================= -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop" aria-hidden="true"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="cart-header">
+      <h3 class="cart-title">
+        <span>🛒 Your Order</span>
+      </h3>
+      <button type="button" class="btn-close-cart" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-body">
+      <!-- Empty State -->
+      <div class="cart-empty-state" id="cartEmptyState">
+        <div class="cart-empty-icon">🍗</div>
+        <h4 style="color:#FFF; font-size:1.3rem; margin-bottom:6px;">Your cart is empty</h4>
+        <p style="font-size:0.85rem;">Select items from our Karahi, BBQ, Broast, Pizza or Chinese menu to start your order!</p>
+      </div>
+
+      <!-- Item List -->
+      <div id="cartItemsList"></div>
+    </div>
+
+    <!-- Order Summary & Checkout -->
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Subtotal:</span>
+        <span class="cart-total-val" id="cartTotalVal">Rs. 0</span>
+      </div>
+
+      <!-- Customer Order Details -->
+      <div class="cart-order-fields">
+        <input type="text" id="customerName" class="cart-input" placeholder="Your Name (e.g. Tariq Mehmood)" />
+        <select id="orderType" class="cart-input">
+          <option value="Home Delivery">🛵 Home Delivery (Kamalia Area)</option>
+          <option value="Takeaway / Parcel">🛍️ Takeaway / Parcel (+Rs. 40 Packing)</option>
+          <option value="Dine-in">🍽️ Dine-in (Family AC Hall)</option>
+        </select>
+        <input type="text" id="customerAddress" class="cart-input" placeholder="Delivery Address / Mohallah in Kamalia" />
+        <input type="text" id="orderNotes" class="cart-input" placeholder="Special instructions (e.g. Makhan karahi extra spicy)" />
+      </div>
+
+      <div class="form-disclaimer-notice" style="margin-bottom: 12px;">
+        ⚠️ This is a sample site. Orders and forms are not active.
+      </div>
+
+      <button type="button" class="btn btn-whatsapp" id="sendWhatsAppOrderBtn" style="width: 100%; margin-bottom: 8px;">
+        <span>💬 Send Order on WhatsApp</span>
+      </button>
+
+      <button type="button" class="btn" style="width: 100%; background: transparent; color: #887276; font-size: 0.78rem;" onclick="clearCart()">
+        Clear Cart
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       FLOATING SAMPLE BADGE (Fixed Bottom-Left on Every Page)
+       ========================================================================= -->
+  <div class="floating-sample-badge" role="note" aria-label="Sample site disclaimer">
+    <span class="badge-dot"></span>
+    <span>Sample Site – Ali Web Studio</span>
+  </div>
+
+  <!-- =========================================================================
+       FLOATING WHATSAPP BUTTON (Always Visible, Bottom-Right)
+       ========================================================================= -->
+  <div class="floating-whatsapp" role="complementary" aria-label="Floating WhatsApp contact">
+    <span class="floating-whatsapp-tooltip">💬 Order: 0300-6914217</span>
+    <a href="https://wa.me/923006914217" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floatingWhatsAppBtn" aria-label="Chat on WhatsApp">
+      <span class="floating-whatsapp-pulse"></span>
+      <span class="floating-whatsapp-pulse"></span>
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.34C9.36 7.34 9.09 7.4 8.87 7.65C8.65 7.89 8.02 8.48 8.02 9.7C8.02 10.92 8.91 12.1 9.03 12.27C9.15 12.44 10.74 14.89 13.18 15.94C15.21 16.82 15.62 16.64 16.07 16.6C16.52 16.56 17.52 16.01 17.73 15.42C17.94 14.83 17.94 14.33 17.88 14.22C17.82 14.11 17.65 14.05 17.4 13.93C17.15 13.8 15.92 13.2 15.7 13.11C15.47 13.03 15.31 12.98 15.14 13.23C14.98 13.48 14.5 14.05 14.35 14.22C14.21 14.39 14.06 14.41 13.81 14.28C13.56 14.16 12.77 13.9 11.83 13.06C11.1 12.41 10.61 11.61 10.46 11.36C10.32 11.11 10.45 10.97 10.57 10.85C10.68 10.74 10.82 10.55 10.95 10.41C11.08 10.26 11.12 10.16 11.21 9.99C11.29 9.82 11.25 9.68 11.19 9.55C11.13 9.42 10.63 8.21 10.42 7.71C10.22 7.21 10.02 7.28 9.87 7.27C9.72 7.26 9.53 7.34 9.53 7.34Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- =========================================================================
+       9. FOOTER
+       ========================================================================= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div>
+          <div class="footer-brand-header">
+            <div class="brand-logo-frame">
+              <img src="./sources/logo.png" alt="Sahiwal Broast Logo" class="brand-logo-img" width="48" height="48" />
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">SAHIWAL <span>BROAST</span></span>
+              <span class="brand-sub">KAMALIA • SB RESTAURANT</span>
+            </div>
+          </div>
+          <div class="urdu-text" style="color: #FFC21A; font-size: 0.95rem; margin-bottom: 12px;">
+            لذت، غذائیت اور معیار ہمارا نصب العین
+          </div>
+          <p class="footer-brand-desc">
+            Serving Kamalia with authentic Pakistani Karahi (خالص مکھن سے تیار کردہ), clay handi, juicy charcoal BBQ, golden broast, fast food, and river fish with uncompromising quality.
+          </p>
+          <div class="social-links">
+            <a href="https://wa.me/923006914217" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp">💬</a>
+            <a href="https://maps.app.goo.gl/J7SFsxrmnMsCrWok9" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Google Maps Location">📍</a>
+            <a href="tel:+923006914217" class="social-icon-btn" aria-label="Phone Call">📞</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#menu" class="footer-link">Full Menu & Prices</a></li>
+            <li><a href="#deals" class="footer-link">Special Combos</a></li>
+            <li><a href="#why-us" class="footer-link">Why Choose Us</a></li>
+            <li><a href="#reviews" class="footer-link">Customer Reviews</a></li>
+            <li><a href="#contact" class="footer-link">Location & Timings</a></li>
+          </ul>
+        </div>
+
+        <!-- Menu Highlights -->
+        <div>
+          <h4 class="footer-col-title">Signature Dishes</h4>
+          <ul class="footer-links-list">
+            <li><a href="#menu" class="footer-link">Butter Chicken Karahi</a></li>
+            <li><a href="#menu" class="footer-link">Green Chili Lemon Handi</a></li>
+            <li><a href="#menu" class="footer-link">Chicken Nawabi Handi</a></li>
+            <li><a href="#menu" class="footer-link">Family BBQ Platter (Rs. 4,990)</a></li>
+            <li><a href="#menu" class="footer-link">S.P Full Broast (Rs. 1,880)</a></li>
+            <li><a href="#menu" class="footer-link">Rohu Fish Fry (Rs. 1,600)</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Timings -->
+        <div>
+          <h4 class="footer-col-title">Order Information</h4>
+          <p style="font-size:0.88rem; color:#FFFFFF; margin-bottom: 8px;">
+            <strong>WhatsApp:</strong> <a href="https://wa.me/923006914217" target="_blank" rel="noopener noreferrer" style="color:#25D366; text-decoration:none; font-weight:600;">+92 300 6914217</a>
+          </p>
+          <p style="font-size:0.82rem; margin-bottom: 8px; color: #E2D9DB;">
+            <strong>Delivery Lines:</strong><br />
+            0332-7214217 | 0336-6914217<br />
+            0312-6914217
+          </p>
+          <p style="font-size:0.85rem; margin-bottom: 8px;">
+            <strong>Timings:</strong><br />
+            10:00 AM – 1:00 AM (Daily)
+          </p>
+          <p style="font-size:0.82rem; color: #FFC21A;">
+            Kamalia, District Toba Tek Singh, Punjab
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Prominent Footer Disclaimer -->
+      <div class="footer-prominent-disclaimer">
+        ⚠️ This is only a sample site from Ali Web Studio. Not the official website of the business.
+      </div>
+
+      <!-- Footer Bottom Bar with Disclaimer -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 Sahiwal Broast Kamalia. Sample presentation by Ali Web Studio.
+        </div>
+        <div class="footer-sample-disclaimer">
+          ⚠️ Sample site – Ali Web Studio. Not the official website of the business.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger from cdnjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Main Vanilla JavaScript -->
+  <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" fill="none" width="100%" height="100%">
+  <defs>
+    <radialGradient id="karahiGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF5722" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FF5722" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#424242"/>
+      <stop offset="50%" stop-color="#212121"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="curryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9800"/>
+      <stop offset="40%" stop-color="#E65100"/>
+      <stop offset="80%" stop-color="#C62828"/>
+      <stop offset="100%" stop-color="#880E4F"/>
+    </linearGradient>
+    <filter id="karahiShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <circle cx="150" cy="120" r="105" fill="url(#karahiGlow)"/>
+  <ellipse cx="150" cy="210" rx="95" ry="14" fill="#050304" opacity="0.6"/>
+
+  <!-- Steam lines -->
+  <g opacity="0.75" stroke="#FFE082" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M125 60 Q118 42 124 28 T120 12" stroke-dasharray="3 3"/>
+    <path d="M150 55 Q156 38 148 24 T154 8" stroke-dasharray="4 2"/>
+    <path d="M175 62 Q170 45 178 30 T172 14" stroke-dasharray="3 3"/>
+  </g>
+
+  <g filter="url(#karahiShadow)">
+    <!-- Karahi Handles -->
+    <path d="M42 110 C28 110 25 130 42 135 L52 132 C42 125 42 118 52 114 Z" fill="#757575" stroke="#424242" stroke-width="2"/>
+    <path d="M258 110 C272 110 275 130 258 135 L248 132 C258 125 258 118 248 114 Z" fill="#757575" stroke="#424242" stroke-width="2"/>
+
+    <!-- Karahi Wok Body -->
+    <ellipse cx="150" cy="130" rx="105" ry="46" fill="url(#panGrad)" stroke="#616161" stroke-width="3"/>
+    
+    <!-- Rich Makhni Gravy / Curry Layer -->
+    <ellipse cx="150" cy="130" rx="92" ry="38" fill="url(#curryGrad)"/>
+    <ellipse cx="150" cy="126" rx="80" ry="28" fill="#FF8F00" opacity="0.4"/>
+
+    <!-- Tender Chicken Chunks in Karahi -->
+    <rect x="105" y="112" width="30" height="22" rx="9" fill="#BF360C" transform="rotate(-15 120 123)"/>
+    <rect x="145" y="105" width="34" height="24" rx="10" fill="#D84315" transform="rotate(8 162 117)"/>
+    <rect x="120" y="128" width="32" height="22" rx="9" fill="#E65100" transform="rotate(-6 136 139)"/>
+    <rect x="165" y="122" width="28" height="20" rx="8" fill="#BF360C" transform="rotate(22 179 132)"/>
+    
+    <!-- Pure Butter / Makhni Melt Pool -->
+    <ellipse cx="148" cy="124" rx="18" ry="7" fill="#FFEE58" opacity="0.9"/>
+    <ellipse cx="148" cy="123" rx="12" ry="4" fill="#FFF59D"/>
+
+    <!-- Julienned Ginger Strips (ادرک) -->
+    <line x1="110" y1="120" x2="135" y2="128" stroke="#FFF9C4" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="140" y1="115" x2="162" y2="126" stroke="#FFF9C4" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="155" y1="130" x2="182" y2="122" stroke="#FFF9C4" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="125" y1="135" x2="148" y2="142" stroke="#FFF9C4" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Sliced Green & Red Chilies (سبز مرچ) -->
+    <path d="M100 132 Q112 126 118 134" stroke="#43A047" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M165 110 Q178 114 185 106" stroke="#E53935" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M142 144 Q155 140 162 148" stroke="#43A047" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+    <!-- Fresh Green Coriander leaves (دھنیا) -->
+    <circle cx="128" cy="116" r="3" fill="#2E7D32"/>
+    <circle cx="132" cy="113" r="2.5" fill="#388E3C"/>
+    <circle cx="168" cy="128" r="3" fill="#2E7D32"/>
+    <circle cx="174" cy="133" r="2.5" fill="#388E3C"/>
+    <circle cx="145" cy="138" r="3" fill="#2E7D32"/>
+
+    <!-- Tomato Slice Garnish -->
+    <ellipse cx="132" cy="126" rx="8" ry="4" fill="#E53935" transform="rotate(20 132 126)"/>
+    <ellipse cx="168" cy="118" rx="8" ry="4" fill="#E53935" transform="rotate(-15 168 118)"/>
+  </g>
+</svg>

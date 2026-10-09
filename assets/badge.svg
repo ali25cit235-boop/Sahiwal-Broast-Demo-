@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" width="100%" height="100%">
+  <defs>
+    <path id="badgeTextCircle" d="M 80, 80 m -56, 0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0" />
+    <linearGradient id="badgeGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="50%" stop-color="#FF9800"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer serrated/dashed border -->
+  <circle cx="80" cy="80" r="76" stroke="#FFC107" stroke-width="2" stroke-dasharray="6 4" fill="#140E0F"/>
+  <circle cx="80" cy="80" r="70" stroke="#FF9800" stroke-width="1.5" fill="none"/>
+  <!-- Circular text -->
+  <text font-family="'Bebas Neue', 'Poppins', sans-serif" font-size="11" font-weight="bold" fill="#FFE082" letter-spacing="3.5">
+    <textPath href="#badgeTextCircle" startOffset="0%">
+      ★ FRESH ★ CRISPY ★ JUICY ★ DESI TASTE ★
+    </textPath>
+  </text>
+  <!-- Center circle -->
+  <circle cx="80" cy="80" r="38" fill="url(#badgeGold)" />
+  <circle cx="80" cy="80" r="34" stroke="#FFF8E7" stroke-width="1.5" stroke-dasharray="3 2" fill="#D50000" />
+  <text x="80" y="74" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="13" font-weight="900" fill="#FFF8E7" letter-spacing="1">100%</text>
+  <text x="80" y="87" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="11" font-weight="bold" fill="#FFD54F" letter-spacing="1.5">KAMALIA</text>
+  <text x="80" y="98" text-anchor="middle" font-family="'Noto Nastaliq Urdu', sans-serif" font-size="8" fill="#FFF">اصلی ذائقہ</text>
+</svg>

@@ -81,8 +81,11 @@
         <a href="#contact" class="nav-link">Location & Call</a>
       </nav>
 
-      <!-- Nav Actions (Cart & WhatsApp) -->
-      <div class="nav-actions">
+        <!-- Book Table Action -->
+        <button type="button" class="btn btn-outline nav-book-btn" onclick="openReservationModal()" style="padding: 8px 14px; font-size: 0.82rem; border-color: rgba(255, 194, 26, 0.5); color: #FFC21A;">
+          <span>📅 <span class="nav-book-text">Book Table</span></span>
+        </button>
+
         <!-- Cart Drawer Button -->
         <button type="button" class="cart-toggle-btn" aria-label="Open Cart Drawer">
           <span>🛒 Cart</span>
@@ -158,6 +161,11 @@
         <!-- Left Hero Content -->
         <div class="hero-content">
           
+          <div class="hero-live-status">
+            <span class="status-dot-pulse"></span>
+            <span>Kitchen Open • Express 30-Min Hot Delivery across Kamalia</span>
+          </div>
+
           <div class="hero-badge-row">
             <span class="hero-sample-ribbon">⭐ Sample Design by Ali Web Studio</span>
             <span class="pill-badge">🔥 خالص مکھن کڑاہی</span>
@@ -189,8 +197,11 @@
               <span>💬 Order on WhatsApp</span>
             </a>
             <a href="#menu" class="btn btn-outline">
-              <span>📖 View Official Menu & Prices</span>
+              <span>📖 View Official Menu</span>
             </a>
+            <button type="button" class="btn btn-outline" onclick="openReservationModal()" style="border-color: rgba(255, 194, 26, 0.45); color: #FFC21A;">
+              <span>📅 Book Table</span>
+            </button>
           </div>
 
           <!-- Services info -->
@@ -242,9 +253,6 @@
             <div class="floating-sat-item floating-drink" title="Fish & Pizza">
               <img src="./assets/fish.svg" alt="Special Rohu Fish Fry" width="140" height="110" />
             </div>
-
-            <!-- Faint diagonal watermark overlay for hero visual -->
-            <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
 
           </div>
         </div>
@@ -305,6 +313,24 @@
           </div>
         </div>
 
+        <!-- Live Search & Dietary Filters Bar -->
+        <div class="menu-search-wrap">
+          <div class="menu-search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="menuSearchInput" class="menu-search-input" placeholder="Search dishes (e.g. Broast, Zinger, Handi, BBQ, Pizza, Karahi, Fish...)" autocomplete="off" />
+            <button type="button" id="clearSearchBtn" class="search-clear-btn" style="display: none;" aria-label="Clear search">✕</button>
+          </div>
+          <div class="menu-stats-bar">
+            <span id="menuDishesCount" class="menu-count-text">Showing All Dishes</span>
+            <div class="menu-quick-filters">
+              <button type="button" class="quick-filter-chip active" data-filter="all">All Items</button>
+              <button type="button" class="quick-filter-chip" data-filter="bestseller">⭐ Bestsellers</button>
+              <button type="button" class="quick-filter-chip" data-filter="spicy">🔥 Spicy</button>
+              <button type="button" class="quick-filter-chip" data-filter="family">👨‍👩‍👧‍👦 Family Packs</button>
+            </div>
+          </div>
+        </div>
+
         <!-- Category Tabs -->
         <div class="menu-tabs" role="tablist">
           <button type="button" class="tab-btn active" data-category="all" role="tab">All Menu (تمام کھانے)</button>
@@ -360,7 +386,6 @@
               
               <div class="deal-img-box">
                 <img src="./sources/burger.jpg" alt="Fast Food Crunch Deal" loading="lazy" />
-                <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
               </div>
 
               <ul class="deal-items-list">
@@ -377,9 +402,14 @@
                 <span class="deal-price-original">Rs. 820</span>
                 <span class="deal-saving">SAVE RS. 130</span>
               </div>
-              <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="orderDealWhatsApp('Fast Food Crunch Deal', 690)">
-                <span>💬 Order this Deal</span>
-              </button>
+              <div class="deal-actions-row">
+                <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="orderDealWhatsApp('Fast Food Crunch Deal', 690)">
+                  <span>💬 Order on WhatsApp</span>
+                </button>
+                <button type="button" class="btn-deal-add-cart" onclick="addDealToCartDirect('deal-crunch', 'Fast Food Crunch Deal', 690)">
+                  <span>🛒 Add Deal to Cart</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -392,7 +422,6 @@
               
               <div class="deal-img-box">
                 <img src="./sources/bbq.jpg" alt="Special Family BBQ Platter" loading="lazy" />
-                <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
               </div>
 
               <ul class="deal-items-list">
@@ -410,9 +439,14 @@
                 <span class="deal-price-original">Official Menu</span>
                 <span class="deal-saving">CHEF SIGNATURE</span>
               </div>
-              <button type="button" class="btn btn-primary" style="width: 100%;" onclick="orderDealWhatsApp('Special Family B.B.Q Platter', 4990)">
-                <span>💬 Order this Platter</span>
-              </button>
+              <div class="deal-actions-row">
+                <button type="button" class="btn btn-primary" style="width: 100%;" onclick="orderDealWhatsApp('Special Family B.B.Q Platter', 4990)">
+                  <span>💬 Order this Platter</span>
+                </button>
+                <button type="button" class="btn-deal-add-cart" onclick="addDealToCartDirect('deal-bbq-platter', 'Special Family B.B.Q Platter', 4990)">
+                  <span>🛒 Add Platter to Cart</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -425,7 +459,6 @@
               
               <div class="deal-img-box">
                 <img src="./sources/handi.jpg" alt="Desi Handi and Biryani Feast" loading="lazy" />
-                <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
               </div>
 
               <ul class="deal-items-list">
@@ -442,9 +475,14 @@
                 <span class="deal-price-original">Rs. 3,430</span>
                 <span class="deal-saving">SAVE RS. 440</span>
               </div>
-              <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="orderDealWhatsApp('Desi Handi & Biryani Feast', 2990)">
-                <span>💬 Order this Deal</span>
-              </button>
+              <div class="deal-actions-row">
+                <button type="button" class="btn btn-whatsapp" style="width: 100%;" onclick="orderDealWhatsApp('Desi Handi & Biryani Feast', 2990)">
+                  <span>💬 Order on WhatsApp</span>
+                </button>
+                <button type="button" class="btn-deal-add-cart" onclick="addDealToCartDirect('deal-handi-feast', 'Desi Handi & Biryani Feast', 2990)">
+                  <span>🛒 Add Feast to Cart</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -472,7 +510,7 @@
 
         <div class="building-grid">
           
-          <!-- Building Photo Card with Watermark & Badges -->
+          <!-- Building Photo Card with Badges -->
           <div class="building-image-card">
             <div class="building-image-badge">
               <span>📍 Iconic Landmark • Kamalia</span>
@@ -480,8 +518,6 @@
 
             <div class="building-img-wrap">
               <img src="./sources/building.jpg" alt="Sahiwal Broast Kamalia Restaurant Building Exterior" loading="lazy" />
-              <!-- Diagonal Watermark Overlay -->
-              <div class="diagonal-watermark-overlay" aria-hidden="true"></div>
             </div>
 
             <div class="building-image-caption-bar">
@@ -548,8 +584,11 @@
             </div>
 
             <div class="building-actions">
-              <a href="tel:+923006914217" class="btn btn-primary" style="padding: 10px 22px;">
-                <span>📞 Reserve Table: 0300-6914217</span>
+              <button type="button" class="btn btn-primary" onclick="openReservationModal()" style="padding: 10px 22px;">
+                <span>📅 Book AC Family Table / Dawat</span>
+              </button>
+              <a href="tel:+923006914217" class="btn btn-outline" style="padding: 10px 20px; border-color: rgba(255, 194, 26, 0.45); color: #FFC21A;">
+                <span>📞 Call: 0300-6914217</span>
               </a>
               <a href="https://maps.app.goo.gl/J7SFsxrmnMsCrWok9" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-maps-link" style="padding: 10px 20px;">
                 <span>🗺️ Locate on Google Maps</span>
@@ -953,6 +992,126 @@
       </div>
     </div>
   </footer>
+
+  <!-- =========================================================================
+       DISH DETAILS QUICK VIEW MODAL
+       ========================================================================= -->
+  <div class="dish-modal-backdrop" id="dishModalBackdrop" aria-hidden="true"></div>
+  <div class="dish-modal" id="dishModal" role="dialog" aria-modal="true" aria-labelledby="modalDishTitle">
+    <button type="button" class="modal-close-btn" id="closeDishModalBtn" aria-label="Close modal">✕</button>
+    <div class="modal-hero-img-wrap">
+      <img src="./sources/broast.jpg" alt="Dish preview" class="modal-hero-img" id="modalDishImg" />
+      <div class="modal-hero-gradient"></div>
+      <div class="modal-tag-badge" id="modalDishTag">Bestseller</div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-title-row">
+        <h3 class="modal-dish-title" id="modalDishTitle">Leg Piece Broast</h3>
+        <div class="modal-dish-urdu urdu-text" id="modalDishUrdu">لیگ پیس بروسٹ</div>
+      </div>
+      <p class="modal-dish-desc" id="modalDishDesc">Crispy pressure fried succulent chicken leg piece served with fresh bun, garlic sauce & fries.</p>
+      
+      <div class="modal-meta-grid">
+        <div class="modal-meta-item">
+          <div class="label">Preparation</div>
+          <div class="val">Fresh & Hot (15-20m)</div>
+        </div>
+        <div class="modal-meta-item">
+          <div class="label">Authenticity</div>
+          <div class="val">100% Halal Desi</div>
+        </div>
+        <div class="modal-meta-item">
+          <div class="label">Packaging</div>
+          <div class="val">Heat Sealed Box</div>
+        </div>
+      </div>
+
+      <div class="modal-price-action-row">
+        <div class="modal-price-box">
+          <span class="modal-price-label">Official Rate</span>
+          <span class="modal-price-val" id="modalDishPrice">Rs. 450</span>
+        </div>
+        <div class="modal-btn-group">
+          <button type="button" class="btn btn-primary" id="modalAddToCartBtn" style="padding: 10px 22px;">
+            <span>🛒 + Add to Cart</span>
+          </button>
+          <a href="https://wa.me/923006914217" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" id="modalWhatsAppBtn" style="padding: 10px 18px;">
+            <span>💬 WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       TABLE & FAMILY DAWAT RESERVATION MODAL
+       ========================================================================= -->
+  <div class="reservation-modal-backdrop" id="reservationModalBackdrop" aria-hidden="true"></div>
+  <div class="reservation-modal" id="reservationModal" role="dialog" aria-modal="true" aria-labelledby="resModalTitle">
+    <button type="button" class="modal-close-btn" id="closeReservationModalBtn" aria-label="Close modal">✕</button>
+    <div class="reservation-modal-header">
+      <h3 class="reservation-modal-title" id="resModalTitle">RESERVE A TABLE</h3>
+      <div class="reservation-modal-urdu urdu-text">فیملی ڈائن اِن ہال یا دعوت کیلئے سیٹ بک کروائیں</div>
+      <div style="font-size: 0.8rem; color: #FFD54F; margin-top: 4px;">Sahiwal Broast Kamalia • 100% Family Friendly AC Halls</div>
+    </div>
+
+    <form id="reservationForm">
+      <div class="reservation-grid">
+        <div class="form-group">
+          <label for="resName" class="form-label">Full Name</label>
+          <input type="text" id="resName" class="form-input" placeholder="e.g. Tariq Mehmood" required />
+        </div>
+        <div class="form-group">
+          <label for="resPhone" class="form-label">Phone / WhatsApp</label>
+          <input type="tel" id="resPhone" class="form-input" placeholder="0300-1234567" required />
+        </div>
+      </div>
+
+      <div class="reservation-grid">
+        <div class="form-group">
+          <label for="resDate" class="form-label">Date</label>
+          <input type="date" id="resDate" class="form-input" required />
+        </div>
+        <div class="form-group">
+          <label for="resTime" class="form-label">Preferred Time</label>
+          <input type="time" id="resTime" class="form-input" required />
+        </div>
+      </div>
+
+      <div class="reservation-grid">
+        <div class="form-group">
+          <label for="resGuests" class="form-label">Number of Guests</label>
+          <select id="resGuests" class="form-input">
+            <option value="2-4 Persons">2 - 4 Persons (Small Family)</option>
+            <option value="5-8 Persons">5 - 8 Persons (Family Group)</option>
+            <option value="9-15 Persons">9 - 15 Persons (Large Family Dawat)</option>
+            <option value="15+ Persons">15+ Persons (Celebration / Banquet)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="resSection" class="form-label">Seating Section</label>
+          <select id="resSection" class="form-input">
+            <option value="AC Family Hall (Pardah)">❄️ AC Family Hall (Dedicated Privacy)</option>
+            <option value="Executive Majlis">👑 Executive VIP Majlis</option>
+            <option value="Main Dine-In Hall">🍽️ Main Restaurant Hall</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="resNotes" class="form-label">Special Requests / Dishes Pre-Order</label>
+        <textarea id="resNotes" class="form-textarea" rows="2" placeholder="e.g. Birthday decoration, Makhan Handi & BBQ platter pre-order"></textarea>
+      </div>
+
+      <div class="form-disclaimer-notice" style="margin-bottom: 14px; font-size: 0.8rem;">
+        ⚠️ This is a sample site. Reservations are processed directly via WhatsApp.
+      </div>
+
+      <button type="submit" class="btn btn-whatsapp" style="width: 100%; font-size: 0.95rem;">
+        <span>💬 Send Reservation via WhatsApp</span>
+      </button>
+    </form>
+  </div>
 
   <!-- GSAP & ScrollTrigger from cdnjs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

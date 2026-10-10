@@ -949,6 +949,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
   renderMenu("all");
   initMenuTabs();
+  initMenuSearch();
+  initDishModal();
+  initReservationModal();
   initDealsTilt();
   initWhyUsCounters();
   initReviewsCarousel();
@@ -1084,10 +1087,12 @@ function initNavbar() {
 }
 
 // =============================================================================
-// 4. MENU FILTERING & TOP 3 EXPAND LOGIC
+// 4. ADVANCED MENU FILTERING, LIVE SEARCH & DISH MODAL
 // =============================================================================
 let isMenuExpanded = false;
 let currentMenuCategory = "all";
+let menuSearchQuery = "";
+let menuQuickFilter = "all";
 
 // The 3 primary flagship dishes to display at the top
 const TOP_3_FLAGSHIP_IDS = ["broast-leg", "karahi-chicken-half", "burger-sp-zinger-cheese"];
@@ -1104,9 +1109,41 @@ function initMenuTabs() {
   });
 }
 
+function initMenuSearch() {
+  const searchInput = document.getElementById("menuSearchInput");
+  const clearBtn = document.getElementById("clearSearchBtn");
+  const quickChips = document.querySelectorAll(".quick-filter-chip");
+
+  searchInput?.addEventListener("input", (e) => {
+    menuSearchQuery = e.target.value.trim().toLowerCase();
+    if (clearBtn) {
+      clearBtn.style.display = menuSearchQuery.length > 0 ? "flex" : "none";
+    }
+    renderMenu(currentMenuCategory);
+  });
+
+  clearBtn?.addEventListener("click", () => {
+    if (searchInput) searchInput.value = "";
+    menuSearchQuery = "";
+    clearBtn.style.display = "none";
+    renderMenu(currentMenuCategory);
+    searchInput?.focus();
+  });
+
+  quickChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      quickChips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      menuQuickFilter = chip.getAttribute("data-filter") || "all";
+      renderMenu(currentMenuCategory);
+    });
+  });
+}
+
 function renderMenu(category) {
   const container = document.getElementById("menuGrid");
   const expandWrap = document.getElementById("menuExpandWrap");
+  const countText = document.getElementById("menuDishesCount");
   if (!container) return;
 
   currentMenuCategory = category;
@@ -1116,8 +1153,48 @@ function renderMenu(category) {
     ? MENU_ITEMS
     : MENU_ITEMS.filter(item => item.category === category);
 
-  // For "all", place the flagship 3 items at the very top
-  if (category === "all") {
+  // Apply Quick Filter chip
+  if (menuQuickFilter === "bestseller") {
+    categoryItems = categoryItems.filter(item => 
+      (item.tag && (item.tag.includes("Bestseller") || item.tag.includes("Top") || item.tag.includes("Popular") || item.tag.includes("Signature")))
+    );
+  } else if (menuQuickFilter === "spicy") {
+    categoryItems = categoryItems.filter(item => 
+      (item.name.toLowerCase().includes("chili") || item.name.toLowerCase().includes("spicy") || item.name.toLowerCase().includes("karahi") || item.name.toLowerCase().includes("tikka") || item.desc.toLowerCase().includes("spic"))
+    );
+  } else if (menuQuickFilter === "family") {
+    categoryItems = categoryItems.filter(item => 
+      (item.tag && item.tag.includes("Family")) || item.name.toLowerCase().includes("full") || item.name.toLowerCase().includes("platter")
+    );
+  }
+
+  // Apply live search query
+  if (menuSearchQuery) {
+    categoryItems = categoryItems.filter(item => {
+      return item.name.toLowerCase().includes(menuSearchQuery) ||
+             (item.nameUrdu && item.nameUrdu.includes(menuSearchQuery)) ||
+             item.desc.toLowerCase().includes(menuSearchQuery) ||
+             item.category.toLowerCase().includes(menuSearchQuery) ||
+             (item.tag && item.tag.toLowerCase().includes(menuSearchQuery));
+    });
+  }
+
+  // Update dishes count badge
+  if (countText) {
+    if (menuSearchQuery) {
+      countText.textContent = `Found ${categoryItems.length} matching item${categoryItems.length === 1 ? '' : 's'}`;
+    } else if (menuQuickFilter !== "all") {
+      countText.textContent = `Showing ${categoryItems.length} ${menuQuickFilter} dishes`;
+    } else {
+      countText.textContent = `Showing ${category === 'all' ? 'All' : category.toUpperCase()} (${categoryItems.length} Dishes)`;
+    }
+  }
+
+  // If searching or quick-filtered, show all matching results; otherwise respect expand toggle
+  const isFiltered = Boolean(menuSearchQuery) || (menuQuickFilter !== "all");
+
+  // For "all" default state, place the flagship 3 items at top
+  if (category === "all" && !isFiltered) {
     const flagshipItems = [];
     const restItems = [];
     categoryItems.forEach(item => {
@@ -1132,15 +1209,31 @@ function renderMenu(category) {
   }
 
   const totalCount = categoryItems.length;
-  const itemsToDisplay = isMenuExpanded ? categoryItems : categoryItems.slice(0, 3);
+  const itemsToDisplay = (isMenuExpanded || isFiltered) ? categoryItems : categoryItems.slice(0, 3);
   const remainingCount = totalCount - 3;
 
+  if (categoryItems.length === 0) {
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 45px 20px; background: rgba(26, 18, 20, 0.6); border-radius: var(--radius-xl); border: 1px dashed rgba(255,194,26,0.3);">
+        <div style="font-size: 2.5rem; margin-bottom: 10px;">🔍</div>
+        <h3 style="color: #FFF; font-size: 1.3rem; margin-bottom: 6px;">No dishes found matching "${menuSearchQuery}"</h3>
+        <p style="color: #A89599; font-size: 0.9rem; margin-bottom: 16px;">Try searching for "Broast", "Karahi", "Handi", "Zinger", "Pizza", or "Fish".</p>
+        <button type="button" class="btn btn-outline" onclick="resetMenuSearch()" style="padding: 6px 18px; font-size: 0.85rem; border-color: #FFC21A; color: #FFC21A;">
+          Clear Search
+        </button>
+      </div>
+    `;
+    if (expandWrap) expandWrap.innerHTML = "";
+    return;
+  }
+
   container.innerHTML = itemsToDisplay.map(item => `
-    <div class="menu-card" data-category="${item.category}">
+    <div class="menu-card" data-category="${item.category}" onclick="openDishModal('${item.id}')" title="Click to view details for ${item.name}">
       <div class="card-top">
         <span class="card-tag ${item.tag === 'Bestseller' || item.tag === 'Top Bestseller' ? 'bestseller' : ''}">${item.tag}</span>
         <div class="card-img-wrap">
           <img src="${item.image}" alt="${item.name}" loading="lazy" class="dish-photo" onerror="this.src='./sources/broast.jpg'" />
+          <span class="card-quick-view-btn">🔍 View Details</span>
         </div>
       </div>
       <div class="card-info">
@@ -1155,7 +1248,7 @@ function renderMenu(category) {
           <span class="sample-badge">Official Menu Price</span>
           <span class="price-val">Rs. ${item.price.toLocaleString()}</span>
         </div>
-        <button type="button" class="btn-add-cart" onclick="addToCart('${item.id}')" aria-label="Add ${item.name} to cart">
+        <button type="button" class="btn-add-cart" onclick="event.stopPropagation(); addToCart('${item.id}')" aria-label="Add ${item.name} to cart">
           <span>+ Add</span>
         </button>
       </div>
@@ -1164,7 +1257,7 @@ function renderMenu(category) {
 
   // Update View All / Expand button
   if (expandWrap) {
-    if (totalCount <= 3) {
+    if (totalCount <= 3 || isFiltered) {
       expandWrap.innerHTML = "";
     } else if (!isMenuExpanded) {
       expandWrap.innerHTML = `
@@ -1191,6 +1284,17 @@ function renderMenu(category) {
   }
 }
 
+window.resetMenuSearch = function() {
+  const searchInput = document.getElementById("menuSearchInput");
+  const clearBtn = document.getElementById("clearSearchBtn");
+  if (searchInput) searchInput.value = "";
+  if (clearBtn) clearBtn.style.display = "none";
+  menuSearchQuery = "";
+  menuQuickFilter = "all";
+  document.querySelectorAll(".quick-filter-chip").forEach(c => c.classList.toggle("active", c.getAttribute("data-filter") === "all"));
+  renderMenu(currentMenuCategory);
+};
+
 function toggleMenuExpand() {
   isMenuExpanded = !isMenuExpanded;
   renderMenu(currentMenuCategory);
@@ -1202,6 +1306,168 @@ function toggleMenuExpand() {
 }
 
 window.toggleMenuExpand = toggleMenuExpand;
+
+// =============================================================================
+// 4B. DISH QUICK VIEW MODAL
+// =============================================================================
+let activeModalDish = null;
+
+function initDishModal() {
+  const backdrop = document.getElementById("dishModalBackdrop");
+  const modal = document.getElementById("dishModal");
+  const closeBtn = document.getElementById("closeDishModalBtn");
+  const addBtn = document.getElementById("modalAddToCartBtn");
+
+  closeBtn?.addEventListener("click", closeDishModal);
+  backdrop?.addEventListener("click", closeDishModal);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("open")) {
+      closeDishModal();
+    }
+  });
+
+  addBtn?.addEventListener("click", () => {
+    if (activeModalDish) {
+      addToCart(activeModalDish.id);
+      closeDishModal();
+      showToast(`Added ${activeModalDish.name} to order!`);
+    }
+  });
+}
+
+function openDishModal(dishId) {
+  const dish = MENU_ITEMS.find(item => item.id === dishId);
+  if (!dish) return;
+
+  activeModalDish = dish;
+
+  const modal = document.getElementById("dishModal");
+  const backdrop = document.getElementById("dishModalBackdrop");
+  const imgEl = document.getElementById("modalDishImg");
+  const tagEl = document.getElementById("modalDishTag");
+  const titleEl = document.getElementById("modalDishTitle");
+  const urduEl = document.getElementById("modalDishUrdu");
+  const descEl = document.getElementById("modalDishDesc");
+  const priceEl = document.getElementById("modalDishPrice");
+  const waBtn = document.getElementById("modalWhatsAppBtn");
+
+  if (imgEl) {
+    imgEl.src = dish.image;
+    imgEl.onerror = () => { imgEl.src = "./sources/broast.jpg"; };
+  }
+  if (tagEl) tagEl.textContent = dish.tag || "Fresh Special";
+  if (titleEl) titleEl.textContent = dish.name;
+  if (urduEl) urduEl.textContent = dish.nameUrdu || "";
+  if (descEl) descEl.textContent = dish.desc;
+  if (priceEl) priceEl.textContent = `Rs. ${dish.price.toLocaleString()}`;
+
+  if (waBtn) {
+    const textMsg = encodeURIComponent(`Assalam o Alaikum! I would like to order "${dish.name}" (Rs. ${dish.price}) from Sahiwal Broast Kamalia.`);
+    waBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${textMsg}`;
+  }
+
+  modal?.classList.add("open");
+  backdrop?.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDishModal() {
+  const modal = document.getElementById("dishModal");
+  const backdrop = document.getElementById("dishModalBackdrop");
+  modal?.classList.remove("open");
+  backdrop?.classList.remove("open");
+  document.body.style.overflow = "auto";
+  activeModalDish = null;
+}
+
+window.openDishModal = openDishModal;
+window.closeDishModal = closeDishModal;
+
+// =============================================================================
+// 4C. TABLE & DAWAT RESERVATION MODAL
+// =============================================================================
+function initReservationModal() {
+  const backdrop = document.getElementById("reservationModalBackdrop");
+  const modal = document.getElementById("reservationModal");
+  const closeBtn = document.getElementById("closeReservationModalBtn");
+  const form = document.getElementById("reservationForm");
+
+  closeBtn?.addEventListener("click", closeReservationModal);
+  backdrop?.addEventListener("click", closeReservationModal);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("open")) {
+      closeReservationModal();
+    }
+  });
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("resName")?.value || "";
+    const phone = document.getElementById("resPhone")?.value || "";
+    const date = document.getElementById("resDate")?.value || "";
+    const time = document.getElementById("resTime")?.value || "";
+    const guests = document.getElementById("resGuests")?.value || "";
+    const section = document.getElementById("resSection")?.value || "";
+    const notes = document.getElementById("resNotes")?.value || "";
+
+    const bookingMsg = `*TABLE / DAWAT RESERVATION INQUIRY*\n` +
+      `🏢 Restaurant: ${RESTAURANT_NAME}\n` +
+      `👤 Name: ${name}\n` +
+      `📞 Phone: ${phone}\n` +
+      `📅 Date: ${date}\n` +
+      `⏰ Time: ${time}\n` +
+      `👥 Guests: ${guests}\n` +
+      `📍 Section: ${section}\n` +
+      (notes ? `📝 Special Notes: ${notes}\n` : '') +
+      `\nAssalam o Alaikum, please confirm our table booking!`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(bookingMsg)}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+    closeReservationModal();
+    showToast("Opening WhatsApp with your booking details!");
+  });
+}
+
+function openReservationModal() {
+  const modal = document.getElementById("reservationModal");
+  const backdrop = document.getElementById("reservationModalBackdrop");
+  
+  // Set default date to today
+  const dateInput = document.getElementById("resDate");
+  if (dateInput && !dateInput.value) {
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.value = today;
+  }
+
+  modal?.classList.add("open");
+  backdrop?.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeReservationModal() {
+  const modal = document.getElementById("reservationModal");
+  const backdrop = document.getElementById("reservationModalBackdrop");
+  modal?.classList.remove("open");
+  backdrop?.classList.remove("open");
+  document.body.style.overflow = "auto";
+}
+
+window.openReservationModal = openReservationModal;
+window.closeReservationModal = closeReservationModal;
+
+// Direct add deal to cart
+window.addDealToCartDirect = function(dealId, dealName, dealPrice) {
+  const dealItem = {
+    id: dealId,
+    name: dealName,
+    price: dealPrice
+  };
+  addToCart(dealId, dealItem);
+  openCartDrawer();
+  showToast(`Added ${dealName} to cart!`);
+};
 
 // =============================================================================
 // 5. DEALS TILT & QUICK ORDER
